@@ -11,12 +11,11 @@
 #include <Sensor.h>
 
 class DFCO2Sensor: public Sensor {
-	public:
-		
+	protected:		
 		bool begin(int RX_Pin = 16, int TX_Pin = 17);
 		bool takeMeasurement();
 
-	private:
+	protected:
 		/// @brief Command to read CO2 data from sensor.
 		const unsigned char readCO2Data[9] = { 0xFF, 0x01, 0x86, 0x00, 0x00, 0x00, 0x00, 0x00, 0x79 };
 };
