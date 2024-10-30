@@ -16,7 +16,7 @@
 #include <HardwareSerial.h>
 
 class DFCO2Sensor: public Sensor {
-	protected:
+	public:
 		DFCO2Sensor(HardwareSerial* SerialPort, int RX_Pin = 16, int TX_Pin = 17);
 		DFCO2Sensor(int RX_Pin, int TX_pin);
 		bool begin();
