@@ -44,22 +44,20 @@ bool DFCO2Sensor::takeMeasurement() {
 
 	// Wait for measurement to be available
 	delay(500);
-
+	
+	uint high, low;
+	int ch;
 	// Read measurement from serial
 	for (int i = 0, j = 0; i < 9; i++)
 	{
-		uint high, low;
-		int ch;
 		if (use_soft_serial) {
 			if (softwareSerialPort.available() > 0)
 			{
-				uint high, low;
 				ch = softwareSerialPort.read();
 			}
 		} else {
 			if (hardwareSerialPort->available() > 0)
 			{
-				uint high, low;
 				ch = hardwareSerialPort->read();
 			}
 		}
