@@ -23,7 +23,6 @@ bool DFCO2Sensor::begin() {
 	Description.name = "CO2 Sensor";
 	Description.parameters = {"CO2"};
 	Description.units = {"ppm"};
-	Description.id = 3;
 	values.resize(Description.parameterQuantity);
 	if (use_soft_serial) {
 		softwareSerialPort.begin(9600);
