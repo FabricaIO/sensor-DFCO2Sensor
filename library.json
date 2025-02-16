@@ -1,5 +1,5 @@
 {
-	"name": "Fabrica-IO Sensor DF Robot CO2",
+	"name": "sensor-DFCO2Sensor",
 	"version": "0.5.0",
 	"description": "UART CO2 sensor",
 	"keywords": "Fabrica-IO, sensor, co2, uart",
