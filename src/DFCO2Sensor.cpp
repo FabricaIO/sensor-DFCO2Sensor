@@ -1,26 +1,27 @@
 #include "DFCO2Sensor.h"
 
 /// @brief Creates a Bosch BME280 object using hardware serial
+/// @param Name The device name
 /// @param SerialPort Pointer to the serial port to use
 /// @param RX_Pin The RX pin to use
 /// @param TX_Pin The TX pin to use
-DFCO2Sensor::DFCO2Sensor(HardwareSerial* SerialPort, int RX_Pin, int TX_Pin) {
+DFCO2Sensor::DFCO2Sensor(String Name, HardwareSerial* SerialPort, int RX_Pin, int TX_Pin) : Sensor(Name) {
 	rxpin = RX_Pin;
 	txpin = TX_Pin;
 	hardwareSerialPort = SerialPort;
 }
 
 /// @brief Creates a Bosch BME280 object using software serial
+/// @param Name The device name
 /// @param RX_Pin The RX pin to use
 /// @param TX_Pin The TX pin to use
-DFCO2Sensor::DFCO2Sensor(int RX_Pin, int TX_Pin) : softwareSerialPort(RX_Pin, TX_Pin) {
+DFCO2Sensor::DFCO2Sensor(String Name, int RX_Pin, int TX_Pin) : softwareSerialPort(RX_Pin, TX_Pin), Sensor(Name) {
 	use_soft_serial = true;
 }
 
 bool DFCO2Sensor::begin() {
 	Description.parameterQuantity = 1;
 	Description.type = "Environmental Sensor";
-	Description.name = "CO2 Sensor";
 	Description.parameters = {"CO2"};
 	Description.units = {"ppm"};
 	// Call default setup
