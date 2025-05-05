@@ -28,7 +28,7 @@
 		"type": 0,
 		"category": "gas sensor",
 		"libname": "DFCO2Sensor",
-		"includes": ["DFAiDFCO2SensorrQuality"],
+		"includes": ["DFCO2Sensor"],
 		"description": "UART CO2 sensor",
 		"constructor":
 		[
