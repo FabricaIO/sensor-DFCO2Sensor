@@ -1,6 +1,6 @@
 #include "DFCO2Sensor.h"
 
-/// @brief Creates a Bosch BME280 object using hardware serial
+/// @brief Creates a CO2 Sensor object using hardware serial
 /// @param Name The device name
 /// @param SerialPort Pointer to the serial port to use
 /// @param RX_Pin The RX pin to use
@@ -11,7 +11,7 @@ DFCO2Sensor::DFCO2Sensor(String Name, HardwareSerial* SerialPort, int RX_Pin, in
 	hardwareSerialPort = SerialPort;
 }
 
-/// @brief Creates a Bosch BME280 object using software serial
+/// @brief Creates a CO2 Sensor object using software serial
 /// @param Name The device name
 /// @param RX_Pin The RX pin to use
 /// @param TX_Pin The TX pin to use
@@ -48,7 +48,7 @@ bool DFCO2Sensor::takeMeasurement() {
 	uint high, low;
 	int ch;
 	// Read measurement from serial
-	for (int i = 0, j = 0; i < 9; i++)
+	for (int i = 0; i < 9; i++)
 	{
 		if (use_soft_serial) {
 			if (softwareSerialPort.available() > 0)
@@ -71,4 +71,5 @@ bool DFCO2Sensor::takeMeasurement() {
 			values[0] = high * 256 + low; // CO2 concentration
 		}
 	}
+	return true;
 }
