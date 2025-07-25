@@ -24,10 +24,6 @@ bool DFCO2Sensor::begin() {
 	Description.type = "Environmental Sensor";
 	Description.parameters = {"CO2"};
 	Description.units = {"ppm"};
-	// Call default setup
-	if (!Sensor::begin()) {
-		return false;
-	}
 	values.resize(Description.parameterQuantity);
 	if (use_soft_serial) {
 		softwareSerialPort.begin(9600);
