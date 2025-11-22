@@ -15,6 +15,7 @@
 #include <SoftwareSerial.h>
 #include <HardwareSerial.h>
 
+/// @brief Device for controlling a DF Robot IR CO2 sensor
 class DFCO2Sensor: public Sensor {
 	public:
 		DFCO2Sensor(String Name, HardwareSerial* SerialPort, int RX_Pin = 16, int TX_Pin = 17);
